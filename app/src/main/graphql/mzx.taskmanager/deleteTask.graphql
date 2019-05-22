@@ -1,0 +1,3 @@
+mutation deleteTaskMutation{
+    deleteTask(id: "9f8a71b5-f6ee-4c2a-ae49-c660641bb2ab")
+}

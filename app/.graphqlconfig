@@ -1,0 +1,16 @@
+{
+  "name": "TaskManager GraphQL Schema",
+  "schemaPath": "src/main/graphql/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://380odjc5vi.execute-api.us-east-1.amazonaws.com/dev/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hdXJpY2lvIEhlcmVkaWEiLCJ1c2VySWQiOiI5ZWRlZTMzNC0yYmQ0LTUxYTctYWYxZi05ZmYzMDljN2Y5YTkiLCJ0aW1lc3RhbXAiOjE1NTgwNjIzNjU5MDQsImFwaUtleSI6ImI4ZDllNjgyLTJiMzEtNGFlYi04YTI3LTJhOWIxMzUwMWViNSIsImNvbnRyb2wiOiI4NjQ4NzdlNi1hNDliLTU1MTEtOGRjOC02NDQ1NzJjNzUxZmMiLCJpYXQiOjE1NTgwNjIzNjV9.nz9IYbVUERC5DBlI20e6GkMgoKIWPdH0l_YYkkg5bgs"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

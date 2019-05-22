@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_label">Name:</string>
+    <string name="status">Status:</string>
+
+    <string name="done">Done:</string>
+    <string name="create_task">Create Task</string>
+    <string name="note_label">Note:</string>
+    <string name="add_task">Add Task</string>
+    <string name="edit_task">Edit Task</string>
+</resources>

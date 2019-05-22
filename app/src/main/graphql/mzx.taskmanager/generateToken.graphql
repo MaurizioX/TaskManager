@@ -1,0 +1,3 @@
+mutation generateAccessTokenMutation{
+    generateAccessToken(apiKey:"b8d9e682-2b31-4aeb-8a27-2a9b13501eb5", userName:"Mauricio Heredia")
+}

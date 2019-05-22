@@ -1,0 +1,8 @@
+mutation createTaskMutation{
+    createTask(name:"task name 2", note: "note here Haha", isDone:false) {
+        id
+        name
+        note
+        isDone
+    }
+}
