@@ -12,7 +12,7 @@ import mzx.taskmanager.model.TaskUi
 import mzx.taskmanager.model.TaskUiDiff
 
 /**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
+ * [RecyclerView.Adapter] that can display a [TaskUi] and makes a call to the
  * specified [OnListFragmentInteractionListener].
  * TODO: Replace the implementation with code for your data type.
  */

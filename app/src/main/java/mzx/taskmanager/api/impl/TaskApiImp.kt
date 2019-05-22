@@ -14,19 +14,19 @@ import mzx.taskmanager.api.data.TaskData
 
 class TaskApiImp constructor(private val apolloClient: ApolloClient) : TaskApi {
     override fun deleteTask(id: String): Observable<Boolean?> =
-        Rx2Apollo.from(apolloClient.mutate(DeleteTaskMutation())).map { t: Response<DeleteTaskMutation.Data> ->
+        Rx2Apollo.from(apolloClient.mutate(DeleteTaskMutation(id))).map { t: Response<DeleteTaskMutation.Data> ->
             t.data()?.deleteTask()
         }
 
 
     override fun updateTask(id: String, isDone: Boolean): Observable<TaskData?> =
-        Rx2Apollo.from(apolloClient.mutate(UpdateTaskStatusMutation.builder().build())).map { response ->
+        Rx2Apollo.from(apolloClient.mutate(UpdateTaskStatusMutation.builder().id(id).isDone(isDone).build())).map { response ->
             response.data()?.updateTaskStatus()?.let { TaskDataImpl(it.id(), it.name(), it.note(), it.isDone) }
         }
 
 
     override fun createTask(name: String, note: String?, isDone: Boolean): Observable<TaskData?> =
-        Rx2Apollo.from(apolloClient.mutate(CreateTaskMutation.builder().build())).map { response ->
+        Rx2Apollo.from(apolloClient.mutate(CreateTaskMutation.builder().name(name).note(note).isDone(isDone).build())).map { response ->
             response.data()?.createTask()?.let { TaskDataImpl(it.id(), it.name(), it.note(), it.isDone) }
         }
 

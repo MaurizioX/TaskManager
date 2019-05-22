@@ -1,5 +1,5 @@
-mutation updateTaskStatusMutation{
-    updateTaskStatus(id: "04ca7be3-789d-46bb-a3d7-c44e137226c5", isDone: false) {
+mutation updateTaskStatusMutation($id:String!, $isDone:Boolean!){
+    updateTaskStatus(id: $id, isDone: $isDone) {
         id
         name
         note
