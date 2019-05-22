@@ -12,4 +12,6 @@
     <string name="note_label">Note:</string>
     <string name="add_task">Add Task</string>
     <string name="edit_task">Edit Task</string>
+    <string name="done_label">Done</string>
+    <string name="delete_task">Delete</string>
 </resources>

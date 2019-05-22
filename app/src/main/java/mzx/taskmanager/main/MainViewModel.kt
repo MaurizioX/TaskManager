@@ -13,7 +13,14 @@ class MainViewModel constructor(private val taskApi: TaskApi) : ViewModel() {
     fun createTask(name: String, note: String): LiveData<Int> {
         taskApi.createTask(name, note, false)
         TODO()
+    }
 
+    fun deleteTask(task: TaskUi) {
+        taskApi.deleteTask(task.id)
+    }
+
+    fun updateTask(task: TaskUi) {
+        taskApi.updateTask(task.id, true)
     }
 
     private val _allTaskUiList = MutableLiveData<List<TaskUi>>().apply {
@@ -29,6 +36,4 @@ class MainViewModel constructor(private val taskApi: TaskApi) : ViewModel() {
     val allTaskUiList: LiveData<List<TaskUi>> = _allTaskUiList
 }
 
-sealed class RequestState {
-
-}
+sealed class RequestState

@@ -18,7 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
+
 
         buildConfigField "String", "SERVER_URL", "\"https://380odjc5vi.execute-api.us-east-1.amazonaws.com/dev/graphql\""
         buildConfigField "String", "AUTH_TOKEN", "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hdXJpY2lvIEhlcmVkaWEiLCJ1c2VySWQiOiI5ZWRlZTMzNC0yYmQ0LTUxYTctYWYxZi05ZmYzMDljN2Y5YTkiLCJ0aW1lc3RhbXAiOjE1NTg0NjY5MTEzNDgsImFwaUtleSI6ImI4ZDllNjgyLTJiMzEtNGFlYi04YTI3LTJhOWIxMzUwMWViNSIsImNvbnRyb2wiOiI4NjQ4NzdlNi1hNDliLTU1MTEtOGRjOC02NDQ1NzJjNzUxZmMiLCJpYXQiOjE1NTg0NjY5MTF9.D0fiXAqgFuJNyHLk7dYrEVYHXjKmE8tChgzCxrZsanQ\""
@@ -87,7 +87,7 @@ dependencies {
 
     implementation 'com.apollographql.apollo:apollo-http-cache:1.0.0'
     implementation 'com.apollographql.apollo:apollo-rx2-support:1.0.0'
-//
+
     implementation 'com.apollographql.apollo:apollo-runtime:1.0.0'
     implementation "com.apollographql.apollo:apollo-android-support:1.0.0"
 

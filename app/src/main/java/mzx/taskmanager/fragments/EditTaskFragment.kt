@@ -7,8 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_edit_task.*
 import mzx.taskmanager.databinding.FragmentEditTaskBinding
+import mzx.taskmanager.main.MainViewModel
 import mzx.taskmanager.model.TaskUi
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +24,8 @@ class EditTaskFragment : Fragment() {
     companion object {
         const val TASK = "task"
     }
+
+    private val mainViewModel by sharedViewModel<MainViewModel>()
 
     private lateinit var task: TaskUi
 
@@ -36,6 +41,18 @@ class EditTaskFragment : Fragment() {
     ): View? = FragmentEditTaskBinding.inflate(inflater, container, false)
         .apply { task = this@EditTaskFragment.task }.root
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        delete_button.setOnClickListener { mainViewModel.deleteTask(task) }
+        is_done_button.apply {
+            setOnClickListener { mainViewModel.updateTask(task) }
+            visibility = if (task.isDone) {
+                View.GONE
+            } else {
+                View.VISIBLE
+            }
+        }
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
