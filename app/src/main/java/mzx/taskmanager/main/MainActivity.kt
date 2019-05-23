@@ -16,14 +16,12 @@ import mzx.taskmanager.model.TaskUi
 class MainActivity : AppCompatActivity(), TaskListFragment.OnListFragmentInteractionListener,
     EditTaskFragment.OnFragmentInteractionListener, CreateTaskFragment.OnFragmentInteractionListener {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener {
-            findNavController(R.id.nav_host_fragment).navigate(R.id.action_taskListFragment_to_createTaskFragment)
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -42,6 +40,10 @@ class MainActivity : AppCompatActivity(), TaskListFragment.OnListFragmentInterac
             R.id.action_taskListFragment_to_editTaskFragment,
             bundleOf(EditTaskFragment.TASK to item)
         )
+    }
+
+    override fun navToCreate() {
+        findNavController(R.id.nav_host_fragment).navigate(R.id.action_taskListFragment_to_createTaskFragment)
     }
 
 }

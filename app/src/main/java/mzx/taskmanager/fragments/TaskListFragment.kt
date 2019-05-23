@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_taskitem_list.*
 import mzx.taskmanager.R
 import mzx.taskmanager.main.MainViewModel
 import mzx.taskmanager.model.TaskUi
@@ -41,23 +41,33 @@ class TaskListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_taskitem_list, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_taskitem_list, container, false)
 
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyTaskItemRecyclerViewAdapter(emptyList(), listener).apply {
-                    mainViewModel.allTaskUiList.observe(this@TaskListFragment, Observer { this.values = it })
-                }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        fab.setOnClickListener {
+            listener?.navToCreate()
 
+        }
+
+        with(list) {
+            layoutManager = when {
+                columnCount <= 1 -> LinearLayoutManager(context)
+                else -> GridLayoutManager(context, columnCount)
+            }
+            adapter = MyTaskItemRecyclerViewAdapter(emptyList(), listener).apply {
+                mainViewModel.allTaskUiList.observe(this@TaskListFragment, Observer {
+                    this.values = it
+                    if (it.isEmpty()) {
+                        no_task.visibility = View.VISIBLE
+                        list.visibility = View.GONE
+                    } else {
+                        list.visibility = View.VISIBLE
+                        no_task.visibility = View.GONE
+                    }
+                })
             }
         }
-        return view
     }
 
     override fun onAttach(context: Context) {
@@ -87,6 +97,7 @@ class TaskListFragment : Fragment() {
      */
     interface OnListFragmentInteractionListener {
         fun onListFragmentInteraction(item: TaskUi)
+        fun navToCreate()
     }
 
     companion object {

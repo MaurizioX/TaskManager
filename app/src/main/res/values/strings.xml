@@ -13,5 +13,7 @@
     <string name="add_task">Add Task</string>
     <string name="edit_task">Edit Task</string>
     <string name="done_label">Done</string>
+    <string name="pending_label">Pending</string>
     <string name="delete_task">Delete</string>
+    <string name="there_is_no_tasks">There is no Tasks</string>
 </resources>

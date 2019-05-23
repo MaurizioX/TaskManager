@@ -52,7 +52,7 @@
             android:id="@+id/is_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            statuXValue="@{task.done}"
+            statusValue="@{task.done}"
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintBaseline_toBaselineOf="@id/is_done_label"
             app:layout_constraintStart_toStartOf="@id/task_name"
